@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace SalarySlip
 {
@@ -58,10 +58,15 @@ namespace SalarySlip
         private int totalSalary;
         public SalarySlip()
         {
+            Console.WriteLine("SalarySlip obj created");
+        }
+
+        public void CalculateSalary()
+        {
             Console.Write("What is your designation. Type 'E' for Engineer, 'M' for Manager, 'A' for Analyst: ");
             string designation = Console.ReadLine().ToUpper();
 
-            if(designation is "E")
+            if (designation is "E")
             {
                 Employee engineer = new Engineer();
                 totalSalary = engineer.GrossSalary();
@@ -92,6 +97,7 @@ namespace SalarySlip
         public static void Main(string[] args)
         {
             SalarySlip slip = new SalarySlip();
+            slip.CalculateSalary();
         }
     }
 }
