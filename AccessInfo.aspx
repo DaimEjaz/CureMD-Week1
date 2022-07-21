@@ -12,7 +12,7 @@
             <h1>Select any name to display the complete information!</h1>
             <asp:DropDownList runat="server" ID="list"></asp:DropDownList>
             <p id="name"></p>
-            <p id="Id"></p>
+            <p id="id"></p>
             <p id="adminYear"></p>
 
         </div>
@@ -30,9 +30,9 @@
                 async: true,
                 success: function (data) {
                     if (data.d) {
-                        $("#name").text(`Name: ${data.d.Name}`);
-                        $("#Id").text(`RollNo : ${data.d.Id}`);
-                        $("#adminYear").text(`Admission Year: ${data.d.AdmissionYear}`);
+                        $("#name").text(`Name: ${data.d.studentName}`);
+                        $("#id").text(`RollNo : ${data.d.studentId}`);
+                        $("#adminYear").text(`Admission Year: ${data.d.admissionYear}`);
                     }
                     else {
                         $("#result").text("Error...");
