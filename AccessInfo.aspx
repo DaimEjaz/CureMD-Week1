@@ -13,7 +13,7 @@
             <asp:DropDownList runat="server" ID="list"></asp:DropDownList>
             <p id="name"></p>
             <p id="Id"></p>
-            <p id="adminyear"></p>
+            <p id="adminYear"></p>
 
         </div>
     </form>
@@ -23,29 +23,23 @@
         dropdown.addEventListener("change", () => {
             let queryIndex = $("#list option:selected").index()
             $.ajax({
-                url: 'AccessInfo.aspx/Answer',
+                url: 'AccessInfo.aspx/GetDetails',
                 type: 'post',
                 data: JSON.stringify({ "queryIndex": queryIndex }),
                 contentType: 'application/json',
                 async: true,
                 success: function (data) {
                     if (data.d) {
-                        console.log(data.d);
                         $("#name").text(`Name: ${data.d.Name}`);
                         $("#Id").text(`RollNo : ${data.d.Id}`);
-                        $("#adminyear").text(`Admission Year: ${data.d.AdmissionYear}`);
-
-
+                        $("#adminYear").text(`Admission Year: ${data.d.AdmissionYear}`);
                     }
                     else {
                         $("#result").text("Error...");
-                        console.log(data);
-
                         throw new DOMException("Invalid value supplied");
                     }
                 }
             });
-            console.log("Ajax ran");
         })
     </script>
 </body>
