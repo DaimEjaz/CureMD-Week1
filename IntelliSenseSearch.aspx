@@ -5,11 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Intellisense Search</title>
-    <style>
-        .open{
-            display: block;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -34,10 +29,10 @@
                 type: 'post',
                 data: JSON.stringify({ "query": query }),
                 contentType: 'application/json',
-                async: false,
+                async: true,
                 success: function(data) {
                     if (data.d !=[]) {
-                        //dropdown.focus();
+                        //ADD comments
                         $("#list").empty()
                         let carArr = data.d;
                         carArr.forEach((car) => {
