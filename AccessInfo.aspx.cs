@@ -47,15 +47,15 @@ namespace AccessStudentInfo
 
     public class Student
     {
-        public string Name { get; set; }
-        public int Id { get; set; }
-        public int AdmissionYear { get; set; }
+        public string studentName { get; set; }
+        public int studentId { get; set; }
+        public int admissionYear { get; set; }
 
-        public Student(string name, int id, int admissionYear)
+        public Student(string name, int id, int studentAdmissionYear)
         {
-            Name = name;
-            Id = id;
-            AdmissionYear = admissionYear;
+            studentName = name;
+            studentId = id;
+            admissionYear = studentAdmissionYear;
         }
     }
 
